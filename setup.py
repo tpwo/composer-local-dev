@@ -24,12 +24,12 @@ release_status = (
     "Development Status :: 4 - Beta"  # see https://pypi.org/classifiers/
 )
 dependencies = [
-    "click>=7.0",
-    "google-auth==2.27.*",
-    "google-cloud-orchestration-airflow>=1.2.0",
-    "google-cloud-artifact-registry>=1.2.0",
-    "rich_click==1.4.0",
-    "docker==6.*",
+    "click",
+    "google-auth",
+    "google-cloud-orchestration-airflow",
+    "google-cloud-artifact-registry",
+    "rich_click",
+    "docker",
 ]
 extras = {
     "tests": ["pytest", "nox", "coverage"],
@@ -74,12 +74,13 @@ setuptools.setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Operating System :: OS Independent",
         "Topic :: Internet",
     ],
     platforms="Posix; MacOS X; Windows",
     packages=packages,
-    python_requires=">=3.8,<3.12",
+    python_requires=">=3.8,<3.13",
     install_requires=dependencies,
     extras_require=extras,
     package_data={"": ["docker_files/entrypoint.sh"]},
