@@ -95,10 +95,8 @@ class EnvironmentStartError(ComposerCliError):
 class EnvironmentStartTimeoutError(EnvironmentStartError):
     """Composer environment start timed out."""
 
-    def __init__(self):
-        msg = constants.ENV_DID_NOT_START_TIMEOUT_ERROR.format(
-            seconds=constants.OPERATION_TIMEOUT_SECONDS
-        )
+    def __init__(self, seconds: int = constants.OPERATION_TIMEOUT_SECONDS):
+        msg = constants.ENV_DID_NOT_START_TIMEOUT_ERROR.format(seconds=seconds)
         super().__init__(msg)
 
 
@@ -188,6 +186,15 @@ class PluginsPathNotExistError(ComposerCliError):
             constants.PLUGINS_PATH_NOT_EXISTS_ERROR.format(
                 plugins_path=plugins_path
             )
+        )
+
+
+class DataPathNotExistError(ComposerCliError):
+    """Data path does not exist or is not a directory."""
+
+    def __init__(self, data_path):
+        super().__init__(
+            constants.DATA_PATH_NOT_EXISTS_ERROR.format(data_path=data_path)
         )
 
 
